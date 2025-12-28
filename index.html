@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XU官网</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            background-image: 
+                linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
+                linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
+                linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #000000, #333333);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .header p {
+            font-size: 1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        
+        .rocket-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #FF6B6B;
+            display: inline-block;
+            animation: rocketFloat 3s ease-in-out infinite;
+            transform-origin: center bottom;
+        }
+        
+        @keyframes rocketFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-5px) rotate(2deg);
+            }
+            75% {
+                transform: translateY(-3px) rotate(-2deg);
+            }
+        }
+        
+        .rocket-icon:hover {
+            animation: rocketLaunch 1s ease-out forwards;
+        }
+        
+        @keyframes rocketLaunch {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        .groups-container {
+            padding: 40px 30px;
+        }
+        
+        .group-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .group-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .group-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #FF6B6B, #333333);
+        }
+        
+        .group-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: #ddd;
+        }
+        
+        .group-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .group-name i {
+            margin-right: 10px;
+            color: #FF6B6B;
+            font-size: 1.3rem;
+        }
+        
+        .join-btn {
+            display: block;
+            background: linear-gradient(to right, #222, #444);
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin-top: auto;
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .join-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
+        
+        .join-btn:hover:before {
+            left: 100%;
+        }
+        
+        .join-btn:hover {
+            background: linear-gradient(to right, #FF6B6B, #333);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .join-btn i {
+            margin-right: 8px;
+        }
+        
+        .footer {
+            background-color: #f9f9f9;
+            padding: 25px 30px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .footer p {
+            margin-bottom: 8px;
+        }
+        
+        .instruction {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-left: 4px solid #FF6B6B;
+            position: relative;
+        }
+        
+        .instruction h3 {
+            color: #222;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .instruction p {
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        .instruction:before {
+            content: '🚀';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            background: white;
+            padding: 0 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .group-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .groups-container {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+                background-size: 30px 30px;
+            }
+            
+            .container {
+                border-radius: 8px;
+            }
+            
+            .header {
+                padding: 25px 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .rocket-icon {
+                font-size: 2.8rem;
+            }
+            
+            .group-item {
+                padding: 20px;
+            }
+        }
+        
+        /* 添加简约动画 */
+        .group-item {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+        
+        .group-item:nth-child(1) { animation-delay: 0.1s; }
+        .group-item:nth-child(2) { animation-delay: 0.2s; }
+        .group-item:nth-child(3) { animation-delay: 0.3s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 添加星星背景效果 */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="rocket-icon">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <h1>❄️不忘初心，坚守本心❄️</h1>
+            <p>❄️XU官网,超多实用功能❄️</p>
+        </div>
+        
+        <div class="groups-container">
+            <div class="instruction">
+                <h3>使用说明</h3>
+                <p>点击对应的"立即加入"按钮，会自动跳转到对应的页面。</p>
+            </div>
+            
+            <div class="group-list">
+                <!-- 第一个QQ群 -->
+                <div class="group-item">
+                    <div class="group-name">
+                        <i class="fas fa-users"></i>
+                        <span>各大脚本群</span>
+                    </div>
+                    <p>各大脚本群，点击进入网页。</p>
+                    <a href="https://brawndariem-spec.github.io/hjnb/" class="join-btn" target="_blank">
+                        <i class="fas fa-sign-in-alt"></i> 立即进入
+                    </a>
+                </div>
+                <div class="group-item">
+                    <div class="group-name">
+                        <i class="fas fa-users"></i>
+                        <span>各大注入器官网</span>
+                    </div>
+                    <p>各大注入器官网，点击进入。</p>
+                    <a href="https://brawndariem-spec.github.io/hjnb1/" class="join-btn" target="_blank">
+                        <i class="fas fa-sign-in-alt"></i> 立即进入
+                    </a>
+                </div>
+                <div class="group-item">
+                    <div class="group-name">
+                        <i class="fas fa-users"></i>
+                        <span>网页制作者的歌单</span>
+                    </div>
+                    <p>绝对好听。</p>
+                    <a href="https://m.kugou.com/songlist/gcid_3z176wfuvz5z0db/?src_cid=3z176wfuvz5z0db&uid=2216313956&chl=message&iszlist=1" class="join-btn" target="_blank">
+                        <i class="fas fa-sign-in-alt"></i> 立即进入
+                    </a>
+                </div>
+                <div class="group-item">
+                    <div class="group-name">
+                        <i class="fas fa-users"></i>
+                        <span>每日推荐脚本</span>
+                    </div>
+                    <p>每日脚本推荐。</p>
+                    <a href="https://brawndariem-spec.github.io/hjnb2/" class="join-btn" target="_blank">
+                        <i class="fas fa-sign-in-alt"></i> 立即进入
+                    </a>
+                </div>
+                <div class="group-item">
+                    <div class="group-name">
+                        <i class="fas fa-users"></i>
+                        <span>免费动漫软件官网</span>
+                    </div>
+                    <p>绝对免费,可能会有一些广告。</p>
+                    <a href="https://www.jcyapp.cn/" class="join-btn" target="_blank">
+                        <i class="fas fa-sign-in-alt"></i> 立即进入
+                    </a>
+                </div>
