@@ -2,317 +2,69 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>roblox挂圈网页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Roblox挂圈网站</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        :root {
+            --cosmic-deep: #050514;
+            --stellar-dark: #0a0a24;
+            --nebula-purple: #5a4bcc;
+            --cosmic-blue: #2b5fff;
+            --stellar-gold: #ffcc00;
+            --cosmic-cyan: #00e5ff;
+            --text-glow: #ffffff;
+            --text-primary: #f8f8ff;
+            --text-secondary: #c0c0ff;
+            --card-bg: rgba(20, 20, 50, 0.6);
+            --border-neon: rgba(91, 75, 204, 0.5);
+            --glass-bg: rgba(30, 30, 60, 0.25);
         }
         
         body {
-            background-color: #f5f5f5;
-            background-image: 
-                linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
-                linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
-                linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
-            background-size: 40px 40px;
-            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+            font-family: 'Exo 2', sans-serif;
+            background: 
+                radial-gradient(circle at 10% 20%, #0a0a1a 0%, #050514 30%, #000008 100%),
+                linear-gradient(135deg, #0a0a1a 0%, #050514 100%);
+            color: var(--text-primary);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 900px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(to right, #000000, #333333);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
+            overflow-x: hidden;
             position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
-        .header h1 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-        
-        .header p {
-            font-size: 1rem;
-            opacity: 0.8;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-        
-        .rocket-icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: #FF6B6B;
-            display: inline-block;
-            animation: rocketFloat 3s ease-in-out infinite;
-            transform-origin: center bottom;
-        }
-        
-        @keyframes rocketFloat {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-5px) rotate(2deg);
-            }
-            75% {
-                transform: translateY(-3px) rotate(-2deg);
-            }
-        }
-        
-        .rocket-icon:hover {
-            animation: rocketLaunch 1s ease-out forwards;
-        }
-        
-        @keyframes rocketLaunch {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) scale(1.2);
-                opacity: 0;
-            }
-        }
-        
-        .groups-container {
-            padding: 40px 30px;
-        }
-        
-        .group-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .group-item {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border: 1px solid #eee;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .group-item:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(to right, #FF6B6B, #333333);
-        }
-        
-        .group-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border-color: #ddd;
-        }
-        
-        .group-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .group-name i {
-            margin-right: 10px;
-            color: #FF6B6B;
-            font-size: 1.3rem;
-        }
-        
-        .join-btn {
-            display: block;
-            background: linear-gradient(to right, #222, #444);
-            color: white;
-            text-decoration: none;
-            padding: 14px 20px;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            text-align: center;
-            margin-top: auto;
-            border: 1px solid #222;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .join-btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s;
-        }
-        
-        .join-btn:hover:before {
-            left: 100%;
-        }
-        
-        .join-btn:hover {
-            background: linear-gradient(to right, #FF6B6B, #333);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
-        
-        .join-btn i {
-            margin-right: 8px;
-        }
-        
-        .footer {
-            background-color: #f9f9f9;
-            padding: 25px 30px;
-            text-align: center;
-            border-top: 1px solid #eee;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .footer p {
-            margin-bottom: 8px;
-        }
-        
-        .instruction {
-            background-color: #f8f8f8;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 30px;
-            text-align: center;
-            border-left: 4px solid #FF6B6B;
-            position: relative;
-        }
-        
-        .instruction h3 {
-            color: #222;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .instruction p {
-            color: #555;
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
-        
-        .instruction:before {
-            content: '🚀';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5rem;
-            background: white;
-            padding: 0 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .group-list {
-                grid-template-columns: 1fr;
-            }
-            
-            .header {
-                padding: 30px 20px;
-            }
-            
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .groups-container {
-                padding: 30px 20px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            body {
-                padding: 15px;
-                background-size: 30px 30px;
-            }
-            
-            .container {
-                border-radius: 8px;
-            }
-            
-            .header {
-                padding: 25px 15px;
-            }
-            
-            .header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .rocket-icon {
-                font-size: 2.8rem;
-            }
-            
-            .group-item {
-                padding: 20px;
-            }
-        }
-        
-        /* 添加简约动画 */
-        .group-item {
-            animation: fadeInUp 0.5s ease forwards;
-            opacity: 0;
-        }
-        
-        .group-item:nth-child(1) { animation-delay: 0.1s; }
-        .group-item:nth-child(2) { animation-delay: 0.2s; }
-        .group-item:nth-child(3) { animation-delay: 0.3s; }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* 添加星星背景效果 */
-        .stars {
-            position: absolute;
+        /* 宇宙背景效果 */
+        .cosmic-background {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            z-index: -3;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(91, 75, 204, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 85% 75%, rgba(43, 95, 255, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.05) 0%, transparent 40%);
+        }
+        
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
             overflow: hidden;
         }
         
@@ -320,141 +72,1665 @@
             position: absolute;
             background-color: white;
             border-radius: 50%;
-            opacity: 0;
-            animation: twinkle 3s infinite;
+            animation: starPulse 8s infinite alternate;
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; }
+        @keyframes starPulse {
+            0%, 100% { opacity: 0.1; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* 宇宙尘埃效果 */
+        .cosmic-dust {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.2), transparent),
+                radial-gradient(3px 3px at 40% 70%, rgba(91, 75, 204, 0.2), transparent),
+                radial-gradient(2px 2px at 60% 20%, rgba(43, 95, 255, 0.2), transparent),
+                radial-gradient(4px 4px at 80% 50%, rgba(255, 204, 0, 0.1), transparent);
+            background-size: 300px 300px;
+            background-repeat: repeat;
+        }
+        
+        /* 主容器 */
+        .main-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 导航栏 */
+        .cosmic-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0 50px;
+            position: relative;
+        }
+        
+        .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--cosmic-cyan), var(--nebula-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 3px;
+            text-shadow: 0 0 40px rgba(91, 75, 204, 0.5);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-logo:hover {
+            transform: scale(1.02);
+        }
+        
+        .nav-logo:after {
+            content: '✦';
+            position: absolute;
+            right: -30px;
+            top: 0;
+            color: var(--stellar-gold);
+            font-size: 1.5rem;
+            animation: rotateStar 20s linear infinite;
+        }
+        
+        @keyframes rotateStar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--cosmic-cyan);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--cosmic-cyan);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* 主标题区域 */
+        .hero-section {
+            text-align: center;
+            padding: 40px 0 80px;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--text-primary), var(--cosmic-cyan));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 30px;
+            text-shadow: 0 0 60px rgba(0, 229, 255, 0.4);
+            letter-spacing: 4px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.6rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        /* 华丽轮播系统 */
+        .cosmic-carousel-section {
+            margin-bottom: 120px;
+            position: relative;
+        }
+        
+        .carousel-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+            letter-spacing: 2px;
+        }
+        
+        .carousel-title:before, .carousel-title:after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--stellar-gold);
+            font-size: 1.5rem;
+        }
+        
+        .carousel-title:before {
+            left: -50px;
+        }
+        
+        .carousel-title:after {
+            right: -50px;
+        }
+        
+        .carousel-container {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(91, 75, 204, 0.2),
+                inset 0 0 50px rgba(0, 0, 0, 0.5);
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-neon);
+            height: 700px;
+            touch-action: pan-y pinch-zoom;
+        }
+        
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 20s ease-out;
+            filter: brightness(0.9) contrast(1.1);
+        }
+        
+        .carousel-slide.active .slide-image {
+            transform: scale(1.05);
+        }
+        
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 50px;
+            background: linear-gradient(to top, rgba(5, 5, 20, 0.95) 30%, transparent);
+            z-index: 2;
+        }
+        
+        .slide-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+        }
+        
+        .slide-description {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            line-height: 1.6;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        
+        /* 轮播指示器 - 优化为更小尺寸 */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .indicator {
+            width: 8px;  /* 从14px减小到8px */
+            height: 8px; /* 从14px减小到8px */
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .indicator.active {
+            background: var(--cosmic-cyan);
+            transform: scale(1.6); /* 从1.4增加到1.6，使激活状态更明显 */
+            box-shadow: 0 0 15px var(--cosmic-cyan);
+        }
+        
+        .indicator:before {
+            content: '';
+            position: absolute;
+            top: -6px;  /* 从-8px减小到-6px */
+            left: -6px; /* 从-8px减小到-6px */
+            right: -6px; /* 从-8px减小到-6px */
+            bottom: -6px; /* 从-8px减小到-6px */
+            border-radius: 50%;
+            border: 1px solid transparent;
+            transition: border-color 0.4s ease;
+        }
+        
+        .indicator.active:before {
+            border-color: var(--cosmic-cyan);
+        }
+        
+        /* 自动轮播进度条 */
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--cosmic-cyan), var(--nebula-purple));
+            z-index: 5;
+            width: 100%;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 5s linear;
+        }
+        
+        /* 触控提示 */
+        .touch-hint {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            z-index: 10;
+            opacity: 0.7;
+            animation: pulseHint 3s infinite;
+        }
+        
+        @keyframes pulseHint {
+            0%, 100% { opacity: 0.5; }
             50% { opacity: 1; }
+        }
+        
+        .touch-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 门户卡片区域 */
+        .portals-section {
+            margin-bottom: 120px;
+        }
+        
+        .portals-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+            letter-spacing: 2px;
+        }
+        
+        .portals-title:before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, var(--cosmic-cyan), transparent);
+            border-radius: 2px;
+        }
+        
+        .portals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .portal-card {
+            background: var(--glass-bg);
+            border-radius: 25px;
+            padding: 40px 35px;
+            border: 1px solid var(--border-neon);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .portal-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--cosmic-cyan), var(--nebula-purple));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .portal-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(91, 75, 204, 0.3);
+            border-color: var(--cosmic-cyan);
+        }
+        
+        .portal-card:hover:before {
+            opacity: 1;
+        }
+        
+        .portal-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--cosmic-cyan);
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+        }
+        
+        .portal-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .portal-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            flex-grow: 1;
+            font-weight: 300;
+        }
+        
+        .portal-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--cosmic-cyan);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .portal-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--cosmic-cyan);
+            transition: width 0.4s ease;
+        }
+        
+        .portal-card:hover .portal-link:after {
+            width: 100%;
+        }
+        
+        .portal-link i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .portal-card:hover .portal-link i {
+            transform: translateX(8px);
+        }
+        
+        /* 模态框样式 - 用于关于我们、隐私政策等页面 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(5, 5, 20, 0.95);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--glass-bg);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid var(--border-neon);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.4s ease;
+            backdrop-filter: blur(15px);
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-neon);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .modal-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--cosmic-cyan);
+            letter-spacing: 2px;
+        }
+        
+        .modal-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .modal-text p {
+            margin-bottom: 20px;
+        }
+        
+        /* 性能优化展示 */
+        .performance-section {
+            background: var(--glass-bg);
+            border-radius: 25px;
+            padding: 50px 40px;
+            margin-bottom: 100px;
+            border: 1px solid var(--border-neon);
+            backdrop-filter: blur(15px);
+        }
+        
+        .performance-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--cosmic-cyan);
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .perf-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 20px;
+            background: rgba(20, 20, 50, 0.4);
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+        
+        .perf-card:hover {
+            border-color: rgba(0, 229, 255, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .perf-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--cosmic-cyan);
+            display: inline-block;
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+        }
+        
+        .perf-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .perf-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* 页脚 */
+        .cosmic-footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(91, 75, 204, 0.2);
+            position: relative;
+        }
+        
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--cosmic-cyan), var(--nebula-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 3px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .footer-text {
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+            cursor: pointer;
+        }
+        
+        .footer-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--cosmic-cyan);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--cosmic-cyan);
+        }
+        
+        .footer-link:hover:after {
+            width: 100%;
+        }
+        
+        .copyright {
+            font-size: 0.95rem;
+            color: rgba(200, 200, 255, 0.5);
+            letter-spacing: 1px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .carousel-container {
+                height: 600px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3.2rem;
+            }
+            
+            .carousel-container {
+                height: 500px;
+            }
+            
+            .slide-title {
+                font-size: 2.5rem;
+            }
+            
+            .slide-description {
+                font-size: 1.2rem;
+            }
+            
+            .portals-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+            
+            .cosmic-navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .carousel-container {
+                height: 400px;
+            }
+            
+            .slide-title {
+                font-size: 2rem;
+            }
+            
+            .slide-description {
+                font-size: 1.1rem;
+            }
+            
+            .slide-overlay {
+                padding: 30px;
+            }
+            
+            .carousel-title, .portals-title {
+                font-size: 2.2rem;
+            }
+            
+            .touch-hint {
+                display: none;
+            }
+            
+            .portals-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 30px;
+            }
+            
+            .modal-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .carousel-container {
+                height: 350px;
+            }
+            
+            .slide-title {
+                font-size: 1.8rem;
+            }
+            
+            .slide-description {
+                font-size: 1rem;
+            }
+            
+            .slide-overlay {
+                padding: 25px;
+            }
+            
+            .carousel-title, .portals-title {
+                font-size: 1.9rem;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-link {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="rocket-icon">
-                <i class="fas fa-rocket"></i>
+    <!-- 宇宙背景 -->     
+    <div class="cosmic-background"></div>
+    <div class="star-field" id="starfield"></div>
+    <div class="cosmic-dust"></div>
+    
+    <!-- 关于我们模态框 -->
+    <div class="modal-overlay" id="aboutModal">
+        <div class="modal-content">
+            <div class="modal-close" id="closeAboutModal">
+                <i class="fas fa-times"></i>
             </div>
-            <h1>❄️不忘初心，坚守本心❄️</h1>
-            <p>❄️roblox挂圈网,超多实用功能❄️</p>
+            <h2 class="modal-title">关于我们</h2>
+            <div class="modal-text">
+                <p>该网站是一个高级Roblox交流平台，致力于为用户提供沉浸式的开挂体验。我们的团队由红姜一定要尝一人组成，共同创造这一独特的事件。</p>
+                <p>自2025年成立以来，我们一直致力于将复杂的Roblox开挂以直观、美观的方式呈现给公众。我们的目标是让每个人都能感受到脚本的强大，无论您身处何地，使用何种设备。</p>
+                <p>我们的核心价值包括：</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li>科学的准确性 - 所有内容都未经过红姜一定要尝审核</li>
+                    <li>视觉的极致 - 采用我自认为帅气的风格</li>
+                    <li>交互的优雅 - 精心设计的触控和交互体验</li>
+                    <li>性能的优化 - 确保在任何设备上都能流畅运行</li>
+                </ul>
+                <p>该网站隶属于XU,并未与他人发生合作。</p>
+            </div>
         </div>
+    </div>
+    
+    <!-- 隐私政策模态框 -->
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal-content">
+            <div class="modal-close" id="closePrivacyModal">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="modal-title">隐私政策</h2>
+            <div class="modal-text">
+                <p>本网站尊重并保护所有使用我们服务的用户的隐私。本隐私政策解释了当您访问我们的网站时，我们如何收集、使用、披露和保护您的个人信息。</p>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">我们收集的信息</h3>
+                <p>当您访问我们的网站时，我们可能会收集以下类型的信息：</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>无：</strong>我们不收集信息(写成这样只是因为这样更像公司)</li>
+                   </ul>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">我们如何使用信息</h3>
+                <p>连信息都没有，使用个屁：</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                   
+                </ul>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">您的权利</h3>
+                <p>根据适用法律，您可能有权：</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li>访问我们持有的关于您的个人信息,虽然我们并没有与您有关的信息</li>
+                    <li>要求更正不准确的信息</li>
+                    <li>要求删除您的个人信息</li>
+                    <li>限制或反对我们处理您的个人信息</li>
+                </ul>
+                
+                <p>如果您对本隐私政策有任何疑问，或想行使您的权利，请通过页脚的联系方式与我们联系。</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 使用条款模态框 -->
+    <div class="modal-overlay" id="termsModal">
+        <div class="modal-content">
+            <div class="modal-close" id="closeTermsModal">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="modal-title">使用条款</h2>
+            <div class="modal-text">
+                <p>欢迎使用本网站。请仔细阅读以下使用条款，因为它们规定了您使用我们网站的条件。</p>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">接受条款</h3>
+                <p>通过访问和使用本网站，您表示您已阅读、理解并同意受这些使用条款的约束。如果您不同意这些条款，请不要使用本网站。</p>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">知识产权</h3>
+                <p>本网站及其所有内容，包括但不限于文本、图像、图形、徽标、按钮图标、音频剪辑、数字下载、数据编译和软件，均归其他人和我所有，并不受到任何条约的保护。</p>
+                <p>本网站使用的所有图像均来自网上，遵循其许可协议。所有其他内容均为XU的财产。</p>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">使用许可</h3>
+                <p>在您遵守这些使用条款的前提下，我们授予您有限的、非排他性的、不可转让的许可，以访问和使用本网站供个人非商业用途。</p>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">禁止行为</h3>
+                <p>在使用本网站时，您不得：</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li>以任何可能损害、禁用、损害本网站的方式使用本网站</li>
+                    <li>试图通过任何方式未经授权访问本网站的任何部分或其他系统和网络</li>
+                    <li>使用任何机器人、蜘蛛或其他自动设备或手动流程监控或复制本网站的任何内容</li>
+                    <li>干扰或试图干扰本网站的正常运行</li>
+                    <li>将本网站用于任何非法目的</li>
+                </ul>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">免责声明</h3>
+                <p>本网站及其内容按"现状"提供，不作任何明示或暗示的保证。XU不保证本网站将不间断或无错误运行，也不保证缺陷将被纠正。</p>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">责任限制</h3>
+                <p>在任何情况下，XU均不对因使用或无法使用本网站而导致的任何直接、间接、附带、特殊或后果性损害承担责任。</p>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">修改条款</h3>
+                <p>我们保留随时修改这些使用条款的权利。修改后的条款将在本网站上发布后立即生效。您继续使用本网站即表示您接受修改后的条款。</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 联系我们模态框 -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content">
+            <div class="modal-close" id="closeContactModal">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="modal-title">联系我们</h2>
+            <div class="modal-text">
+                <p>我们很乐意听取您的意见、建议或问题。请使用以下方式与我们联系：</p>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">联系信息</h3>
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(0, 229, 255, 0.1); display: flex; align-items: center; justify-content: center; color: var(--cosmic-cyan);">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: bold; color: var(--text-primary);">电子邮件</div>
+                            <div>就凭你还想知道我的电子邮箱🤓🤓🤓</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(0, 229, 255, 0.1); display: flex; align-items: center; justify-content: center; color: var(--cosmic-cyan);">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: bold; color: var(--text-primary);">QQ号</div>
+                            <div>1626844714</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(0, 229, 255, 0.1); display: flex; align-items: center; justify-content: center; color: var(--cosmic-cyan);">
+                            <i class="fas fa-pen"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: bold; color: var(--text-primary);">名言</div>
+                            <div>当你想要放弃的时候，想想是什么让你当初坚持走到了这里。<br>这是一个强大的自问句式，能帮你找回初心，重燃动力</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">社交媒体</h3>
+                <div style="display: flex; gap: 20px; margin-bottom: 30px;">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(0, 229, 255, 0.1); display: flex; align-items: center; justify-content: center; color: var(--cosmic-cyan); font-size: 1.5rem; cursor: pointer; transition: all 0.3s ease;">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(0, 229, 255, 0.1); display: flex; align-items: center; justify-content: center; color: var(--cosmic-cyan); font-size: 1.5rem; cursor: pointer; transition: all 0.3s ease;">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(0, 229, 255, 0.1); display: flex; align-items: center; justify-content: center; color: var(--cosmic-cyan); font-size: 1.5rem; cursor: pointer; transition: all 0.3s ease;">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(0, 229, 255, 0.1); display: flex; align-items: center; justify-content: center; color: var(--cosmic-cyan); font-size: 1.5rem; cursor: pointer; transition: all 0.3s ease;">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">隶属组织与中心思想</h3>
+                <p>隶属于XU，我们是爱国爱党爱人民的人，忠于党和人民。</p>
+                
+                <h3 style="color: var(--cosmic-cyan); margin: 25px 0 15px; font-family: 'Orbitron', sans-serif;">反馈与建议</h3>
+                <p>我们始终在寻找改进方法。如果您对该网页有任何反馈或建议，请随时与我们联系。您的意见对我们非常重要，有助于我们提供更好的网页服务。</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <!-- 导航栏 -->
+        <nav class="cosmic-navbar">
+            <div class="nav-logo" id="homeLogo">Roblox</div>
+            <div class="nav-links">
+                <a class="nav-link" id="aboutLink">关于我们</a>
+                <a class="nav-link" id="privacyLink">隐私政策</a>
+                <a class="nav-link" id="termsLink">使用条款</a>
+                <a class="nav-link" id="contactLink">联系我们</a>
+            </div>
+        </nav>
         
-        <div class="groups-container">
-            <div class="instruction">
-                <h3>使用说明</h3>
-                <p>点击对应的"立即加入"按钮，会自动跳转到对应的页面,此网站隶属于XU。</p>
+        <!-- 主标题区域 -->
+        <section class="hero-section">
+            <h1 class="hero-title">CREATE THE FUTURE</h1>
+            <p class="hero-subtitle">「创造的皇冠，从不属于捷径的访客。」
+在Roblox的宇宙中，最令人仰望的，永远是那些用想象力构建世界的创造者、用热情编写复杂脚本的工程师，以及用无数次失败换来一次精妙操作的练习者。他们的作品与技艺，是时间与心神的凝练，无可替代。</p>
+        </section>
+        
+        <!-- 华丽轮播系统 -->
+        <section class="cosmic-carousel-section">
+            <h2 class="carousel-title">开挂展示</h2>
+            
+            <!-- 触控提示 -->
+            <div class="touch-hint">
+                <div class="touch-icon">
+                    <i class="fas fa-hand-point-left"></i>
+                </div>
+                <span>滑动切换图片</span>
             </div>
             
-            <div class="group-list">
-                <!-- 第一个QQ群 -->
-                <div class="group-item">
-                    <div class="group-name">
-                        <i class="fas fa-users"></i>
-                        <span>公告和roblox新闻</span>
+            <!-- 轮播容器 -->
+            <div class="carousel-container" id="carouselContainer">
+                <!-- 自动轮播进度条 -->
+                <div class="progress-bar" id="progressBar"></div>
+                
+                <!-- 轮播轨道 -->
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- 轮播项1 -->
+                    <div class="carousel-slide active">
+                        <img src="https://s3.bmp.ovh/imgs/2025/12/31/2e4740a97255d79a.jpg" alt="日全食奇观" class="slide-image">
+                        <div class="slide-overlay">
+                            <h3 class="slide-title">领域展开</h3>
+                            <p class="slide-description">脚本让你成为了那个拥有领域的男人。</p>
+                        </div>
                     </div>
-                    <p>公告功能,不只有公告，还有roblox的新闻。</p>
-                    <a href="https://brawndariem-spec.github.io/hjnb5/" class="join-btn" target="_blank">
-                        <i class="fas fa-sign-in-alt"></i> 立即进入
-                    </a>
-                </div>
-                <div class="group-item">
-                    <div class="group-name">
-                        <i class="fas fa-users"></i>
-                        <span>各大脚本群</span>
+                    
+                    <!-- 轮播项2 -->
+                    <div class="carousel-slide">
+                        <img src="https://s3.bmp.ovh/imgs/2025/12/31/e1758081a73557fe.jpg" alt="银河中心" class="slide-image">
+                        <div class="slide-overlay">
+                            <h3 class="slide-title">黑洞逐渐成为日常</h3>
+                            <p class="slide-description">黑洞,逐渐成为了服务器自然灾害的日常场景形象。</p>
+                        </div>
                     </div>
-                    <p>各大脚本群，点击进入网页。</p>
-                    <a href="https://brawndariem-spec.github.io/hjnb/" class="join-btn" target="_blank">
-                        <i class="fas fa-sign-in-alt"></i> 立即进入
-                    </a>
-                </div>
-                <div class="group-item">
-                    <div class="group-name">
-                        <i class="fas fa-users"></i>
-                        <span>各大注入器官网</span>
+                    
+                    <!-- 轮播项3 -->
+                    <div class="carousel-slide">
+                        <img src="https://s3.bmp.ovh/imgs/2025/12/31/9960f5be35a2916f.jpg" alt="猎户座星云" class="slide-image">
+                        <div class="slide-overlay">
+                            <h3 class="slide-title">脚本的实力</h3>
+                            <p class="slide-description">用脚本改变游戏,创造不可能。</p>
+                        </div>
                     </div>
-                    <p>各大注入器官网，点击进入。</p>
-                    <a href="https://brawndariem-spec.github.io/hjnb1/" class="join-btn" target="_blank">
-                        <i class="fas fa-sign-in-alt"></i> 立即进入
-                    </a>
-                </div>
-                <div class="group-item">
-                    <div class="group-name">
-                        <i class="fas fa-users"></i>
-                        <span>网页制作者的歌单</span>
+                    
+                    <!-- 轮播项4 -->
+                    <div class="carousel-slide">
+                        <img src="https://s3.bmp.ovh/imgs/2025/12/31/4cb319d818990eb9.jpg" alt="北极光" class="slide-image">
+                        <div class="slide-overlay">
+                            <h3 class="slide-title">顶级猫娘</h3>
+                            <p class="slide-description">凑数用的。</p>
+                        </div>
                     </div>
-                    <p>绝对好听。</p>
-                    <a href="https://m.kugou.com/songlist/gcid_3z176wfuvz5z0db/?src_cid=3z176wfuvz5z0db&uid=2216313956&chl=message&iszlist=1" class="join-btn" target="_blank">
-                        <i class="fas fa-sign-in-alt"></i> 立即进入
-                    </a>
                 </div>
-                <div class="group-item">
-                    <div class="group-name">
-                        <i class="fas fa-users"></i>
-                        <span>每日推荐脚本</span>
+            </div>
+            
+            <!-- 轮播指示器 - 已优化为更小尺寸 -->
+            <div class="carousel-indicators" id="indicators">
+                <!-- 通过JS动态生成 -->
+            </div>
+        </section>
+        
+        <!-- 门户卡片区域 -->
+        <section class="portals-section">
+            <h2 class="portals-title">探索门户</h2>
+            <div class="portals-grid">
+                <!-- 门户卡片1 -->
+                <div class="portal-card" onclick="window.open('https://brawndariem-spec.github.io/hjnb5/', '_blank')">
+                    <div class="portal-icon">
+                        <i class="fas fa-clipboard-list"></i>
                     </div>
-                    <p>每日脚本推荐。</p>
-                    <a href="https://brawndariem-spec.github.io/hjnb2/" class="join-btn" target="_blank">
-                        <i class="fas fa-sign-in-alt"></i> 立即进入
-                    </a>
+                    <h3 class="portal-title">Roblox新闻与公告</h3>
+                    <p class="portal-description">阅读Roblox新闻与公告,里面还包括黑客事件,了解你所不知道的。</p>
+                    <a class="portal-link">进入 <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="group-item">
-                    <div class="group-name">
-                        <i class="fas fa-users"></i>
-                        <span>免费动漫软件官网</span>
+                
+                <!-- 门户卡片2 -->                           <div class="portal-card" onclick="window.open('https://brawndariem-spec.github.io/hjnb/', '_blank')">
+                    <div class="portal-icon">
+                        <i class="fas fa-qq"></i>
                     </div>
-                    <p>绝对免费,可能会有一些广告。</p>
-                    <a href="https://www.jcyapp.cn/" class="join-btn" target="_blank">
-                        <i class="fas fa-sign-in-alt"></i> 立即进入
-                    </a>
+                    <h3 class="portal-title">各个Roblox挂群</h3>
+                    <p class="portal-description">快捷进入名个Roblox挂群，与志同道合的人一起交流。</p>
+                    <a class="portal-link">进入 <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="group-item">
-                    <div class="group-name">
-                        <i class="fas fa-users"></i>
-                        <span>赞赏作者</span>
+                
+                <!-- 门户卡片3 -->
+                <div class="portal-card" onclick="window.open('https://brawndariem-spec.github.io/hjnb1/', '_blank')">
+                    <div class="portal-icon">
+                        <i class="fas fa-download"></i>
                     </div>
-                    <p>感谢支持,你们的支持是我创作的动力。</p>
-                    <a href="https://brawndariem-spec.github.io/hjnb3/" class="join-btn" target="_blank">
-                        <i class="fas fa-sign-in-alt"></i> 立即进入
-                    </a>
+                    <h3 class="portal-title">下载各大注入器</h3>
+                    <p class="portal-description">下载各大注入器，总有一款你喜欢。</p>
+                    <a class="portal-link">进入 <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="group-item">
-                    <div class="group-name">
-                        <i class="fas fa-users"></i>
-                        <span>快速加入热门服务器</span>
+                
+                <div class="portal-card" onclick="window.open('https://brawndariem-spec.github.io/hjnb2/', '_blank')">
+                    <div class="portal-icon">
+                        <i class="fas fa-pen"></i>
                     </div>
-                    <p>快捷进入，你要先挂好加速器。</p>
-                    <a href="https://brawndariem-spec.github.io/hjnb4/" class="join-btn" target="_blank">
-                        <i class="fas fa-sign-in-alt"></i> 立即加入
-                    </a>
+                    <h3 class="portal-title">每日推荐脚本</h3>
+                    <p class="portal-description">每日推荐脚本，总有一款适合你。</p>
+                    <a class="portal-link">进入 <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="group-item">
-                    <div class="group-name">
-                        <i class="fas fa-users"></i>
-                        <span>自助解卡</span>
+                
+                <div class="portal-card" onclick="window.open('https://brawndariem-spec.github.io/hjnb4/', '_blank')">
+                    <div class="portal-icon">
+                        <i class="fas fa-server"></i>
                     </div>
-                    <p>支持多种注入器的卡密链接,要挂vpn。</p>
-                    <a href="https://izen.lol/" class="join-btn" target="_blank">
-                        <i class="fas fa-sign-in-alt"></i> 立即进入
-                    </a>
+                    <h3 class="portal-title">快速加入Roblox服务器</h3>
+                    <p class="portal-description">快速加入Roblox的热门服务器。</p>
+                    <a class="portal-link">进入 <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="group-item">
-                    <div class="group-name">
-                        <i class="fas fa-users"></i>
-                        <span>Discord</span>
+                <div class="portal-card" onclick="window.open('https://discord.com/download', '_blank')">
+                    <div class="portal-icon">
+                        <i class="fas fa-download"></i>
                     </div>
-                    <p>下载Discord。</p>
-                    <a href="https://discord.com/download" class="join-btn" target="_blank">
-                        <i class="fas fa-sign-in-alt"></i> 立即进入
-                    </a>
+                    <h3 class="portal-title">下载Discord</h3>
+                    <p class="portal-description">下载Discord。</p>
+                    <a class="portal-link">进入 <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="group-item">
-                    <div class="group-name">
-                        <i class="fas fa-users"></i>
-                        <span>进入频道交流</span>
+                <div class="portal-card" onclick="window.open('https://www.jcyapp.cn/', '_blank')">
+                    <div class="portal-icon">
+                        <i class="fas fa-tv"></i>
                     </div>
-                    <p>点击按钮加入频道交流有关于roblox的所有内容。</p>
-                    <a href="https://pd.qq.com/s/e1xrxql5j?b=9" class="join-btn" target="_blank">
-                        <i class="fas fa-sign-in-alt"></i> 立即加入
-                    </a>
+                    <h3 class="portal-title">免费动漫软件</h3>
+                    <p class="portal-description">绝对免费，可能会有一些广告。</p>
+                    <a class="portal-link">进入 <i class="fas fa-arrow-right"></i></a>
                 </div>
+                <div class="portal-card" onclick="window.open('https://izen.lol/', '_blank')">
+                    <div class="portal-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="portal-title">自动解卡</h3>
+                    <p class="portal-description">支持超多注入器的卡密。</p>
+                    <a class="portal-link">进入 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="portal-card" onclick="window.open('https://m.kugou.com/songlist/gcid_3z176wfuvz5z0db/?src_cid=3z176wfuvz5z0db&uid=2216313956&chl=message&iszlist=1', '_blank')">
+                    <div class="portal-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="portal-title">网页制作者的歌单</h3>
+                    <p class="portal-description">我自认为很好听。</p>
+                    <a class="portal-link">进入 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="portal-card" onclick="window.open('https://brawndariem-spec.github.io/hjnb3/', '_blank')">
+                    <div class="portal-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="portal-title">赞赏作者</h3>
+                    <p class="portal-description">你们的支持是我最大的动力。</p>
+                    <a class="portal-link">进入 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            
+            </div>
+        </section>
+        
+        <!-- 性能优化展示 -->
+        <section class="performance-section">
+            <h3 class="performance-title">极致性能优化</h3>
+            <div class="performance-grid">
+                <div class="perf-card">
+                    <div class="perf-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>流畅体验</h4>
+                    <p>动画和渲染管道，确保在任何设备上都能实现丝滑流畅的体验。</p>
+                </div>
+                
+                <div class="perf-card">
+                    <div class="perf-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>触控设计</h4>
+                    <p>全都是触控,优化交互的体验。</p>
+                </div>
+                
+                <div class="perf-card">
+                    <div class="perf-icon">
+                        <i class="fas fa-cloud-download-alt"></i>
+                    </div>
+                    <h4>智能资源加载</h4>
+                    <p>按需加载资源，延迟加载非关键内容，确保快速的首屏加载时间。</p>
+                </div>
+                
+                <div class="perf-card">
+                    <div class="perf-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h4>视觉优化</h4>
+                    <p>精心设计的视觉效果在保持土到极致的同时，最小化GPU和CPU使用率。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 页脚 -->
+        <footer class="cosmic-footer">
+            <div class="footer-logo" id="footerLogo">Roblox挂圈网站</div>
+            <p class="footer-text">该网站是一个高级Roblox交流平台，致力于为用户提供沉浸式的开挂体验。我们的团队由红姜一定要尝一人组成，共同创造这一独特的事件。</p>
+            
+            <div class="footer-links">
+                <a class="footer-link" id="footerAboutLink">关于我们</a>
+                <a class="footer-link" id="footerPrivacyLink">隐私政策</a>
+                <a class="footer-link" id="footerTermsLink">使用条款</a>
+                <a class="footer-link" id="footerContactLink">联系我们</a>
+                <a class="footer-link" id="footerTechLink">技术文档</a>
+            </div>
+            
+            <p class="copyright"> 2025 XU所有 | 高级Roblox挂圈网页体验</p>
+        </footer>
+    </div>
+
+    <script>
+        // 创建星空背景
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            const starCount = window.innerWidth < 768 ? 120 : 250;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // 随机大小
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // 随机位置
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                
+                // 随机颜色
+                const colors = ['#ffffff', '#aaccff', '#ffffcc', '#ffccff'];
+                star.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // 随机动画属性
+                const delay = Math.random() * 8;
+                const duration = 5 + Math.random() * 6;
+                star.style.animationDelay = `${delay}s`;
+                star.style.animationDuration = `${duration}s`;
+                
+                starfield.appendChild(star);
+            }
+        }
+        
+        // 模态框管理器
+        class ModalManager {
+            constructor() {
+                this.currentModal = null;
+                this.initModals();
+            }
+            
+            initModals() {
+                // 关于我们模态框
+                const aboutModal = document.getElementById('aboutModal');
+                const aboutLink = document.getElementById('aboutLink');
+                const footerAboutLink = document.getElementById('footerAboutLink');
+                const closeAboutModal = document.getElementById('closeAboutModal');
+                
+                aboutLink.addEventListener('click', () => this.openModal(aboutModal));
+                footerAboutLink.addEventListener('click', () => this.openModal(aboutModal));
+                closeAboutModal.addEventListener('click', () => this.closeModal(aboutModal));
+                
+                // 隐私政策模态框
+                const privacyModal = document.getElementById('privacyModal');
+                const privacyLink = document.getElementById('privacyLink');
+                const footerPrivacyLink = document.getElementById('footerPrivacyLink');
+                const closePrivacyModal = document.getElementById('closePrivacyModal');
+                
+                privacyLink.addEventListener('click', () => this.openModal(privacyModal));
+                footerPrivacyLink.addEventListener('click', () => this.openModal(privacyModal));
+                closePrivacyModal.addEventListener('click', () => this.closeModal(privacyModal));
+                
+                // 使用条款模态框
+                const termsModal = document.getElementById('termsModal');
+                const termsLink = document.getElementById('termsLink');
+                const footerTermsLink = document.getElementById('footerTermsLink');
+                const closeTermsModal = document.getElementById('closeTermsModal');
+                
+                termsLink.addEventListener('click', () => this.openModal(termsModal));
+                footerTermsLink.addEventListener('click', () => this.openModal(termsModal));
+                closeTermsModal.addEventListener('click', () => this.closeModal(termsModal));
+                
+                // 联系我们模态框
+                const contactModal = document.getElementById('contactModal');
+                const contactLink = document.getElementById('contactLink');
+                const footerContactLink = document.getElementById('footerContactLink');
+                const closeContactModal = document.getElementById('closeContactModal');
+                
+                contactLink.addEventListener('click', () => this.openModal(contactModal));
+                footerContactLink.addEventListener('click', () => this.openModal(contactModal));
+                closeContactModal.addEventListener('click', () => this.closeModal(contactModal));
+                
+                // 点击模态框背景关闭
+                document.querySelectorAll('.modal-overlay').forEach(modal => {
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) {
+                            this.closeModal(modal);
+                        }
+                    });
+                });
+                
+                // ESC键关闭模态框
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.currentModal) {
+                        this.closeModal(this.currentModal);
+                    }
+                });
+            }
+            
+            openModal(modal) {
+                if (this.currentModal) {
+                    this.closeModal(this.currentModal);
+                }
+                
+                this.currentModal = modal;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            closeModal(modal) {
+                modal.classList.remove('active');
+                this.currentModal = null;
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // 高级轮播系统
+        class CosmicCarousel {
+            constructor() {
+                this.container = document.getElementById('carouselContainer');
+                this.track = document.getElementById('carouselTrack');
+                this.indicatorsContainer = document.getElementById('indicators');
+                this.progressBar = document.getElementById('progressBar');
+                this.slides = Array.from(document.querySelectorAll('.carousel-slide'));
+                this.currentIndex = 0;
+                this.isAnimating = false;
+                this.isAutoPlaying = true;
+                this.autoPlayInterval = null;
+                this.touchStartX = 0;
+                this.touchEndX = 0;
+                this.swipeThreshold = 50;
+                
+                this.init();
+            }
+            
+            init() {
+                // 创建指示器     
+                this.createIndicators();
+                
+                // 初始化自动轮播
+                this.startAutoPlay();
+                
+                // 设置触摸事件
+                this.setupTouchEvents();
+                
+                // 设置键盘导航
+                this.setupKeyboardNavigation();
+                
+                // 初始化进度条
+                this.updateProgressBar();
+                
+                // 更新活动状态
+                this.updateActiveState();
+            }
+            
+            createIndicators() {
+                this.indicatorsContainer.innerHTML = '';
+                
+                this.slides.forEach((slide, index) => {
+                    const indicator = document.createElement('div');
+                    indicator.classList.add('indicator');
+                    if (index === this.currentIndex) indicator.classList.add('active');
+                    indicator.dataset.index = index;
+                    
+                    indicator.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.goToSlide(index);
+                    });
+                    
+                    this.indicatorsContainer.appendChild(indicator);
+                });
+            }
+            
+            setupTouchEvents() {
+                let isSwiping = false;
+                let startX = 0;
+                let currentX = 0;
+                let translateX = 0;
+                
+                // 触摸开始
+                this.container.addEventListener('touchstart', (e) => {
+                    if (this.isAnimating) return;
+                    
+                    isSwiping = true;
+                    startX = e.touches[0].clientX;
+                    currentX = startX;
+                    translateX = -this.currentIndex * 100;
+                    
+                    // 暂停自动轮播
+                    this.pauseAutoPlay();
+                }, { passive: true });
+                
+                // 触摸移动
+                this.container.addEventListener('touchmove', (e) => {
+                    if (!isSwiping || this.isAnimating) return;
+                    
+                    e.preventDefault();
+                    currentX = e.touches[0].clientX;
+                    const diff = currentX - startX;
+                    
+                    // 计算滑动百分比
+                    const slidePercentage = (diff / this.container.offsetWidth) * 100;
+                    
+                    // 应用滑动变换
+                    this.track.style.transition = 'none';
+                    this.track.style.transform = `translateX(${translateX + slidePercentage}%)`;
+                }, { passive: false });
+                
+                // 触摸结束
+                this.container.addEventListener('touchend', () => {
+                    if (!isSwiping || this.isAnimating) return;
+                    
+                    isSwiping = false;
+                    this.track.style.transition = 'transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+                    
+                    const diff = currentX - startX;
+                    const slidePercentage = Math.abs(diff / this.container.offsetWidth) * 100;
+                    
+                    // 判断滑动方向
+                    if (slidePercentage > 15) {
+                        if (diff > 0) {
+                            // 向右滑动 - 上一张
+                            this.prevSlide();
+                        } else {
+                            // 向左滑动 - 下一张
+                            this.nextSlide();
+                        }
+                    } else {
+                        // 滑动距离不够，回到当前位置
+                        this.goToSlide(this.currentIndex);
+                    }
+                    
+                    // 恢复自动轮播
+                    setTimeout(() => this.resumeAutoPlay(), 5000);
+                });
+                
+                // 鼠标拖动支持（桌面设备）
+                this.container.addEventListener('mousedown', (e) => {
+                    if (this.isAnimating) return;
+                    
+                    isSwiping = true;
+                    startX = e.clientX;
+                    currentX = startX;
+                    translateX = -this.currentIndex * 100;
+                    
+                    // 暂停自动轮播
+                    this.pauseAutoPlay();
+                    
+                    // 阻止文本选择
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('mousemove', (e) => {
+                    if (!isSwiping || this.isAnimating) return;
+                    
+                    currentX = e.clientX;
+                    const diff = currentX - startX;
+                    
+                    // 计算滑动百分比
+                    const slidePercentage = (diff / this.container.offsetWidth) * 100;
+                    
+                    // 应用滑动变换
+                    this.track.style.transition = 'none';
+                    this.track.style.transform = `translateX(${translateX + slidePercentage}%)`;
+                });
+                
+                document.addEventListener('mouseup', () => {
+                    if (!isSwiping || this.isAnimating) return;
+                    
+                    isSwiping = false;
+                    this.track.style.transition = 'transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+                    
+                    const diff = currentX - startX;
+                    const slidePercentage = Math.abs(diff / this.container.offsetWidth) * 100;
+                    
+                    // 判断滑动方向
+                    if (slidePercentage > 15) {
+                        if (diff > 0) {
+                            // 向右滑动 - 上一张
+                            this.prevSlide();
+                        } else {
+                            // 向左滑动 - 下一张
+                            this.nextSlide();
+                        }
+                    } else {
+                        // 滑动距离不够，回到当前位置
+                        this.goToSlide(this.currentIndex);
+                    }
+                    
+                    // 恢复自动轮播
+                    setTimeout(() => this.resumeAutoPlay(), 5000);
+                });
+            }
+            
+            setupKeyboardNavigation() {
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        this.prevSlide();
+                    } else if (e.key === 'ArrowRight') {
+                        this.nextSlide();
+                    }
+                });
+            }
+            
+            startAutoPlay() {
+                if (this.autoPlayInterval) clearInterval(this.autoPlayInterval);
+                
+                this.autoPlayInterval = setInterval(() => {
+                    if (this.isAutoPlaying && !this.isAnimating) {
+                        this.nextSlide();
+                    }
+                }, 6000);
+            }
+            
+            pauseAutoPlay() {
+                this.isAutoPlaying = false;
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            }
+            
+            resumeAutoPlay() {
+                this.isAutoPlaying = true;
+                this.startAutoPlay();
+            }
+            
+            goToSlide(index) {
+                if (this.isAnimating || index === this.currentIndex) return;
+                
+                this.isAnimating = true;
+                this.currentIndex = index;
+                
+                // 更新轮播位置
+                this.track.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+                
+                // 更新活动状态
+                this.updateActiveState();
+                
+                // 重置进度条
+                this.updateProgressBar();
+                
+                // 动画完成后重置标志
+                setTimeout(() => {
+                    this.isAnimating = false;
+                }, 800);
+            }
+            
+            nextSlide() {
+                const nextIndex = (this.currentIndex + 1) % this.slides.length;
+                this.goToSlide(nextIndex);
+            }
+            
+            prevSlide() {
+                const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+                this.goToSlide(prevIndex);
+            }
+            
+            updateActiveState() {
+                // 更新幻灯片状态
+                this.slides.forEach((slide, index) => {
+                    if (index === this.currentIndex) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+                
+                // 更新指示器状态
+                document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                    if (index === this.currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            updateProgressBar() {
+                // 重置进度条
+                this.progressBar.style.transition = 'none';
+                this.progressBar.style.transform = 'scaleX(0)';
+                
+                // 触发重绘                                void this.progressBar.offsetWidth;
+                
+                // 开始新动画
+                this.progressBar.style.transition = 'transform 5s linear';
+                this.progressBar.style.transform = 'scaleX(1)';
+            }
+        }
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', () => {
+            // 创建星空背景
+            createStarfield();
+            
+            // 初始化模态框管理器
+            const modalManager = new ModalManager();
+            
+            // 初始化轮播系统
+            const carousel = new CosmicCarousel();
+            
+            // 导航栏logo点击回到顶部
+            const homeLogo = document.getElementById('homeLogo');
+            const footerLogo = document.getElementById('footerLogo');
+            
+            homeLogo.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            footerLogo.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // 技术文档链接
+            const techLink = document.getElementById('footerTechLink');
+            techLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('技术文档正在开发中，即将推出！');
+            });
+            
+            // 添加性能优化：减少窗口调整时的重绘
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    // 重新创建星星以适应新尺寸
+                    const starfield = document.getElementById('starfield');
+                    starfield.innerHTML = '';
+                    createStarfield();
+                }, 250);
+            });
+            
+            // 添加页面可见性检测，优化后台性能
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    // 页面隐藏时暂停自动轮播
+                    carousel.pauseAutoPlay();
+                } else {
+                    // 页面恢复时恢复自动轮播
+                    carousel.resumeAutoPlay();
+                }
+            });
+        });
+    </script>
+</body>
+</html>       
